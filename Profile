@@ -1,0 +1,44 @@
+import React from 'react';
+
+const Avatar = ({ src }) => (
+  <img src={src} alt="avatar" style={{ borderRadius: "50%", width: "100px", height: "100px" }} />
+);
+
+const UserInfo = ({ name, email, bio }) => (
+  <div>
+    <h3>{name}</h3>
+    <p>{email}</p>
+    <p>{bio}</p>
+  </div>
+);
+
+const ProfileCard = ({ user }) => (
+  <div style={{ 
+    border: "1px solid #ccc", 
+    borderRadius: "10px", 
+    padding: "20px", 
+    maxWidth: "300px", 
+    textAlign: "center", 
+    fontFamily: "Arial, sans-serif" 
+  }}>
+    <Avatar src={user.avatar} />
+    <UserInfo name={user.name} email={user.email} bio={user.bio} />
+  </div>
+);
+
+const App = () => {
+  const user = {
+    avatar: "https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_1280.png",
+    name: "Vetri V",
+    email: "vv8240014@gmail.com",
+    bio: "B.TECH,IT FROM RVS"
+  };
+
+  return (
+    <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
+      <ProfileCard user={user} />
+    </div>
+  );
+};
+
+export default App;
